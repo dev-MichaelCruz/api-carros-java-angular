@@ -14,4 +14,6 @@ public class Marca {
 
     @Column(name = "nomemarca", nullable = false)
     private String nome;
+
+
 }

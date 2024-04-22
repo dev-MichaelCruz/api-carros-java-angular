@@ -1,15 +1,13 @@
 package com.michaelcruz.api.entities;
 
-import com.michaelcruz.api.enums.EnumMarca;
 import jakarta.persistence.*;
 import lombok.Data;
-
-import java.util.List;
 
 @Data
 @Entity
 @Table(name = "carro")
 public class Carro {
+
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     @Column(name = "idcarro")
@@ -27,7 +25,14 @@ public class Carro {
     @Column(name = "modelocarro")
     private String modelo;
 
-    @ManyToOne
+    @OneToOne
     @JoinColumn(name = "marca_idmarca")
     private Marca marca;
+
+    @ManyToOne
+    @JoinTable(name = "carro_cor",
+            joinColumns = @JoinColumn(name = "carro_idcarro"),
+            inverseJoinColumns = @JoinColumn(name = "cor_idcor"))
+    private Cor cor;
+
 }

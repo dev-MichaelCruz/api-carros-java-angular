@@ -20,7 +20,7 @@ public class MarcaController {
     }
 
     @PostMapping
-    public void adicionarMarca(@RequestBody Marca marca) {
-        this.marcaService.adicionarMarca(marca);
+    public void adicionarMarca(@RequestBody Marca nomeMarca) {
+        this.marcaService.adicionarMarca(nomeMarca);
     }
 }
