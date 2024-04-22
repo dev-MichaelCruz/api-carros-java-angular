@@ -5,6 +5,7 @@ import lombok.Data;
 
 @Data
 @Entity
+@Table(name = "marca")
 public class Marca {
 
     @Id
@@ -12,5 +13,5 @@ public class Marca {
     private int id;
 
     @Column(name = "nomemarca", nullable = false)
-    private String nomeMarca;
+    private String nome;
 }

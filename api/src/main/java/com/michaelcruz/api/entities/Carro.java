@@ -8,25 +8,26 @@ import java.util.List;
 
 @Data
 @Entity
+@Table(name = "carro")
 public class Carro {
-
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
-    private Long idcarro;
+    @Column(name = "idcarro")
+    private Long id;
 
-    @Column(name = "nomecarro", nullable = false)
-    private String nomeCarro;
+    @Column(name = "nomecarro")
+    private String nome;
 
-    @Column(name = "anofabricacaocarro", nullable = false)
-    private int anoFabricacaoCarro;
+    @Column(name = "anofabricacaocarro")
+    private int anoFabricacao;
 
-    @Column(name = "anomodelocarro", nullable = false)
-    private String anoModeloCarro;
+    @Column(name = "anomodelocarro")
+    private int anoModelo;
 
-    @Column(name = "marcacarro")
-    private EnumMarca marcaCarro;
+    @Column(name = "modelocarro")
+    private String modelo;
 
-    @ManyToMany
-    @JoinTable(name = "idcor")
-    private List<Cor> cores;
+    @ManyToOne
+    @JoinColumn(name = "marca_idmarca")
+    private Marca marca;
 }
