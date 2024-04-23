@@ -8,7 +8,6 @@ import org.springframework.dao.EmptyResultDataAccessException;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
 import org.springframework.stereotype.Service;
-import org.springframework.web.server.ResponseStatusException;
 
 import java.util.ArrayList;
 import java.util.List;
@@ -68,10 +67,10 @@ public class CarroService {
 
     public ResponseEntity excluirCarro(Long id){
         try {
-        carroRepository.deleteById(id);
-            return new ResponseEntity(HttpStatus.OK);
+            carroRepository.deleteById(id);
+            return ResponseEntity.status(HttpStatus.NO_CONTENT).build();
         } catch (EmptyResultDataAccessException e) {
-            return new ResponseEntity(HttpStatus.NOT_FOUND);
+            return ResponseEntity.status(HttpStatus.NOT_FOUND).build();
         }
     }
 }
