@@ -7,6 +7,7 @@ import lombok.Data;
 @Entity
 @Table(name = "carro_cor")
 public class CarroCor {
+
     @Id
     @ManyToOne
     @JoinColumn(name = "carro_idcarro")

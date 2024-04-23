@@ -4,7 +4,11 @@ import com.michaelcruz.api.entities.Carro;
 import com.michaelcruz.api.entities.Cor;
 import com.michaelcruz.api.repositories.CarroRepository;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.dao.EmptyResultDataAccessException;
+import org.springframework.http.HttpStatus;
+import org.springframework.http.ResponseEntity;
 import org.springframework.stereotype.Service;
+import org.springframework.web.server.ResponseStatusException;
 
 import java.util.ArrayList;
 import java.util.List;
@@ -46,12 +50,15 @@ public class CarroService {
                 marcaService.adicionarMarca(novoCarro.getMarca());
                 carroAtual.setMarca(novoCarro.getMarca());
             }
+
             if (novoCarro.getCores() != null) {
+
                 for (Cor cor : novoCarro.getCores()) {
                     List<Cor> coresAtual = new ArrayList<>();
                     coresAtual.add(cor);
                     corService.adicionarCor(coresAtual);
                 }
+
                 carroAtual.setCores(novoCarro.getCores());
             }
 
@@ -59,8 +66,12 @@ public class CarroService {
         }
     }
 
-    public void excluirCarro(Long id) {
+    public ResponseEntity excluirCarro(Long id){
+        try {
         carroRepository.deleteById(id);
-
+            return new ResponseEntity(HttpStatus.OK);
+        } catch (EmptyResultDataAccessException e) {
+            return new ResponseEntity(HttpStatus.NOT_FOUND);
+        }
     }
 }

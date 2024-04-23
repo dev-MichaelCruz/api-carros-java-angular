@@ -1,9 +1,7 @@
 package com.michaelcruz.api.services;
 
-import com.michaelcruz.api.entities.Carro;
 import com.michaelcruz.api.entities.Marca;
 import com.michaelcruz.api.repositories.MarcaRepository;
-import org.springframework.aop.target.LazyInitTargetSource;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
@@ -31,6 +29,5 @@ public class MarcaService {
         } else {
             this.marcaRepository.save(marca);
         }
-
     }
 }
