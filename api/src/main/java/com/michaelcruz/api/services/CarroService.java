@@ -2,14 +2,8 @@ package com.michaelcruz.api.services;
 
 import com.michaelcruz.api.entities.Carro;
 import com.michaelcruz.api.entities.Cor;
-import com.michaelcruz.api.entities.Marca;
 import com.michaelcruz.api.repositories.CarroRepository;
-import com.michaelcruz.api.repositories.CorRepository;
-import com.michaelcruz.api.repositories.MarcaRepository;
 import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.http.HttpStatus;
-import org.springframework.http.HttpStatusCode;
-import org.springframework.http.ResponseEntity;
 import org.springframework.stereotype.Service;
 
 import java.util.ArrayList;
@@ -63,5 +57,10 @@ public class CarroService {
 
             carroRepository.save(carroAtual);
         }
+    }
+
+    public void excluirCarro(Long id) {
+        carroRepository.deleteById(id);
+
     }
 }

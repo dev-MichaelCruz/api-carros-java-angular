@@ -29,4 +29,9 @@ public class CarroController {
     public void atualizarCarro(@PathVariable("id") Long id, @RequestBody Carro carro){
         this.carroService.atualizarCarro(id, carro);
     }
+
+    @DeleteMapping("/{id}")
+    public void removerCarro(@PathVariable("id") Long id){
+        this.carroService.excluirCarro(id);
+    }
 }
