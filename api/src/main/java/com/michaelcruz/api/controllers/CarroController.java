@@ -24,4 +24,9 @@ public class CarroController {
     public void adicionarCarro(@RequestBody Carro carro){
         this.carroService.adicionarCarro(carro);
     }
+
+    @PutMapping("/{id}")
+    public void atualizarCarro(@PathVariable("id") Long id, @RequestBody Carro carro){
+        this.carroService.atualizarCarro(id, carro);
+    }
 }
