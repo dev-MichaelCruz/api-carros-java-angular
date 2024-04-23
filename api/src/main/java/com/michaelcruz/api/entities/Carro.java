@@ -3,6 +3,9 @@ package com.michaelcruz.api.entities;
 import jakarta.persistence.*;
 import lombok.Data;
 
+import java.util.List;
+import java.util.Set;
+
 @Data
 @Entity
 @Table(name = "carro")
@@ -25,14 +28,14 @@ public class Carro {
     @Column(name = "modelocarro")
     private String modelo;
 
-    @OneToOne
+    @ManyToOne
     @JoinColumn(name = "marca_idmarca")
     private Marca marca;
 
-    @ManyToOne
+    @ManyToMany
     @JoinTable(name = "carro_cor",
             joinColumns = @JoinColumn(name = "carro_idcarro"),
             inverseJoinColumns = @JoinColumn(name = "cor_idcor"))
-    private Cor cor;
+    private List<Cor> cores;
 
 }

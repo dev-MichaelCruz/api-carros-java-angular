@@ -1,5 +1,6 @@
 package com.michaelcruz.api.controllers;
 
+import com.michaelcruz.api.entities.Carro;
 import com.michaelcruz.api.entities.Marca;
 import com.michaelcruz.api.services.MarcaService;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -20,7 +21,7 @@ public class MarcaController {
     }
 
     @PostMapping
-    public void adicionarMarca(@RequestBody Marca nomeMarca) {
-        this.marcaService.adicionarMarca(nomeMarca);
+    public void adicionarMarca(@RequestBody Marca marca) {
+        this.marcaService.adicionarMarca(marca);
     }
 }

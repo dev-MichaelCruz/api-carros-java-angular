@@ -28,7 +28,7 @@ public class CarroService {
 
     public void adicionarCarro(Carro carro) {
         marcaService.adicionarMarca(carro.getMarca());
-        corService.adicionarCor(carro.getCor());
+        corService.adicionarCor(carro.getCores());
         carroRepository.save(carro);
     }
 }

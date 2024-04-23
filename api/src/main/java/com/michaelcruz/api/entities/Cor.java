@@ -16,9 +16,4 @@ public class Cor {
     @Column(name = "nomecor")
     private String nome;
 
-    public Cor() {}
-
-    public Cor(String nome) {
-        this.nome = nome;
-    }
 }
