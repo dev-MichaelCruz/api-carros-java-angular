@@ -40,14 +40,10 @@ public class CarroService {
     public void adicionarCarro(Carro carro) {
         if(carroUtil.verificarDadosCarro(carro)){
             if(carroUtil.verificarCadastro(carro)){
-                marcaService.adicionarMarca(carro.getMarca());
-                corService.adicionarCor(carro.getCores());
-                carroRepository.save(carro);
+                carroUtil.confirmarAdicao(carro);
             }
         } else {
-            marcaService.adicionarMarca(carro.getMarca());
-            corService.adicionarCor(carro.getCores());
-            carroRepository.save(carro);
+            carroUtil.confirmarAdicao(carro);
         }
     }
 
