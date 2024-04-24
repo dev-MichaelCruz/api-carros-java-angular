@@ -3,6 +3,7 @@ package com.michaelcruz.api.services;
 import com.michaelcruz.api.entities.Carro;
 import com.michaelcruz.api.entities.Cor;
 import com.michaelcruz.api.repositories.CarroRepository;
+import com.michaelcruz.api.util.CarroUtil;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.dao.EmptyResultDataAccessException;
 import org.springframework.http.HttpStatus;
@@ -22,15 +23,23 @@ public class CarroService {
     private CorService corService;
     @Autowired
     private MarcaService marcaService;
+    @Autowired
+    private CarroUtil carroUtil;
 
     public List<Carro> listarCarros() {
         return carroRepository.findAll();
     }
 
     public void adicionarCarro(Carro carro) {
-        marcaService.adicionarMarca(carro.getMarca());
-        corService.adicionarCor(carro.getCores());
-        carroRepository.save(carro);
+
+        if(carroUtil.verificarCadastro(carro)) {
+            Long carroId = carroRepository.findByNome(carro.getNome()).get().getId();
+            atualizarCarro(carroId, carro);
+        } else {
+            marcaService.adicionarMarca(carro.getMarca());
+            corService.adicionarCor(carro.getCores());
+            carroRepository.save(carro);
+        }
     }
 
     public void atualizarCarro(Long id, Carro novoCarro) {
