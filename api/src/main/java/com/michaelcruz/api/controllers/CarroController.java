@@ -2,7 +2,6 @@ package com.michaelcruz.api.controllers;
 
 import com.michaelcruz.api.entities.Carro;
 import com.michaelcruz.api.services.CarroService;
-import com.michaelcruz.api.services.CarroServiceImpl;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
@@ -12,6 +11,11 @@ import java.util.List;
 
 @RestController
 @RequestMapping("/api/v1/carros")
+@CrossOrigin(value = "http://localhost:4200",
+             methods = {RequestMethod.GET,
+                        RequestMethod.POST,
+                        RequestMethod.PUT,
+                        RequestMethod.DELETE})
 public class CarroController {
 
     @Autowired

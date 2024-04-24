@@ -3,6 +3,7 @@ package com.michaelcruz.api.util;
 import com.michaelcruz.api.entities.Carro;
 import com.michaelcruz.api.entities.Cor;
 import com.michaelcruz.api.repositories.CarroRepository;
+import com.michaelcruz.api.repositories.MarcaRepository;
 import com.michaelcruz.api.services.CorService;
 import com.michaelcruz.api.services.MarcaService;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -15,12 +16,16 @@ import java.util.Optional;
 @Component
 public class CarroUtil {
 
+    private final CarroRepository carroRepository;
+    private final MarcaService marcaService;
+    private final CorService corService;
+
     @Autowired
-    private CarroRepository carroRepository;
-    @Autowired
-    private MarcaService marcaService;
-    @Autowired
-    private CorService corService;
+    public CarroUtil(CarroRepository carroRepository, MarcaService marcaService, CorService corService) {
+        this.carroRepository = carroRepository;
+        this.marcaService = marcaService;
+        this.corService = corService;
+    }
 
     public boolean verificarCadastro(Carro carro) {
         return carroRepository.findByNome(carro.getNome()).isPresent();
