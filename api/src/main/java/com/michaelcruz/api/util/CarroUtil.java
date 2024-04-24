@@ -1,13 +1,14 @@
 package com.michaelcruz.api.util;
 
 import com.michaelcruz.api.entities.Carro;
+import com.michaelcruz.api.entities.Cor;
 import com.michaelcruz.api.repositories.CarroRepository;
-import com.michaelcruz.api.services.CarroService;
 import com.michaelcruz.api.services.CorService;
 import com.michaelcruz.api.services.MarcaService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Component;
 
+import java.util.ArrayList;
 import java.util.List;
 import java.util.Optional;
 

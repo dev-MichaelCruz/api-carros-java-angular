@@ -2,6 +2,7 @@ package com.michaelcruz.api.controllers;
 
 import com.michaelcruz.api.entities.Carro;
 import com.michaelcruz.api.services.CarroService;
+import com.michaelcruz.api.services.CarroServiceImpl;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
