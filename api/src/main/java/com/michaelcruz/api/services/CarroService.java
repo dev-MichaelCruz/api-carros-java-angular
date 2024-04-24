@@ -38,10 +38,12 @@ public class CarroService {
     }
 
     public void adicionarCarro(Carro carro) {
-
-        if(carroUtil.verificarCadastro(carro)) {
-            Long carroId = carroRepository.findByNome(carro.getNome()).get().getId();
-            atualizarCarro(carroId, carro);
+        if(carroUtil.verificarDadosCarro(carro)){
+            if(carroUtil.verificarCadastro(carro)){
+                marcaService.adicionarMarca(carro.getMarca());
+                corService.adicionarCor(carro.getCores());
+                carroRepository.save(carro);
+            }
         } else {
             marcaService.adicionarMarca(carro.getMarca());
             corService.adicionarCor(carro.getCores());
