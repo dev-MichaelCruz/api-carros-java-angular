@@ -24,7 +24,7 @@ public class CarroController {
     @PostMapping
     public ResponseEntity<Carro> adicionarCarro(@RequestBody Carro carro){
         this.carroService.adicionarCarro(carro);
-        return ResponseEntity.status(HttpStatus.CREATED).body(carro);
+        return ResponseEntity.status(HttpStatus.CREATED).build();
     }
 
     @PutMapping("/{id}")

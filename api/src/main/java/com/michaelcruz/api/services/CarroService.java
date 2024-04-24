@@ -17,14 +17,21 @@ import java.util.Optional;
 @Service
 public class CarroService {
 
+    private final CarroRepository carroRepository;
+    private final CorService corService;
+    private final MarcaService marcaService;
+    private final CarroUtil carroUtil;
+
     @Autowired
-    private CarroRepository carroRepository;
-    @Autowired
-    private CorService corService;
-    @Autowired
-    private MarcaService marcaService;
-    @Autowired
-    private CarroUtil carroUtil;
+    public CarroService(CarroRepository carroRepository,
+                        CorService corService,
+                        MarcaService marcaService,
+                        CarroUtil carroUtil) {
+        this.carroRepository = carroRepository;
+        this.corService = corService;
+        this.marcaService = marcaService;
+        this.carroUtil = carroUtil;
+    }
 
     public List<Carro> listarCarros() {
         return carroRepository.findAll();
@@ -43,21 +50,13 @@ public class CarroService {
     }
 
     public void atualizarCarro(Long id, Carro novoCarro) {
+
         Optional<Carro> carroOptional = carroRepository.findById(id);
+
 
         if (carroOptional.isPresent()) {
 
             Carro carroAtual = carroOptional.get();
-
-            carroAtual.setNome(novoCarro.getNome());
-            carroAtual.setAnoFabricacao(novoCarro.getAnoFabricacao());
-            carroAtual.setAnoModelo(novoCarro.getAnoModelo());
-            carroAtual.setModelo(novoCarro.getModelo());
-
-            if (novoCarro.getMarca() != null) {
-                marcaService.adicionarMarca(novoCarro.getMarca());
-                carroAtual.setMarca(novoCarro.getMarca());
-            }
 
             if (novoCarro.getCores() != null) {
 
