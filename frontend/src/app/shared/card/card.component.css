@@ -1,0 +1,38 @@
+.card-nome {
+  padding: .5rem;
+  justify-content: space-between;
+}
+
+.list-group-item {
+  font-size: small;
+  flex: 1;
+  display: flex;
+  justify-content: space-between;
+  margin: 0;
+  padding: .5rem;
+}
+
+.info-display {
+  display: flex;
+}
+
+.info-cores {
+  padding: .5rem;
+}
+
+.lista-cores {
+  padding: .25rem;
+  display: flex;
+  flex-wrap: wrap;
+}
+
+.cor-nome {
+  flex-basis: 50%;
+  text-align: center;
+}
+
+.card-botoes {
+  padding: .5rem;
+  display: flex;
+  justify-content: space-between;
+}

@@ -1,0 +1,17 @@
+p {
+  font-size: 20px;
+}
+
+.card-botoes {
+  padding: .5rem;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  width: 100%;
+}
+
+button {
+  margin: 10px 10px;
+  width: 50%;
+}
