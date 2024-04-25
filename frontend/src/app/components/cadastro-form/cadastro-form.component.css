@@ -1,0 +1,23 @@
+.input-cores {
+  display: flex;
+}
+
+.input-group-text {
+  width: 25%;
+  height: fit-content;
+}
+
+.form-control {
+  height: fit-content;
+}
+
+.lista-cores {
+  width: 50%;
+  display: flex;
+  flex-direction: column;
+}
+.card-botoes {
+  padding: .5rem;
+  display: flex;
+  justify-content: space-between;
+}
