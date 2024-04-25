@@ -1,35 +1,71 @@
-<div class="input-group mb-3">
-  <span class="input-group-text">Nome do Carro</span>
-  <input type="text" class="form-control">
-</div>
-<div class="input-group mb-3">
-  <span class="input-group-text">Ano de Fabricação</span>
-  <input type="text" class="form-control">
-  <span class="input-group-text">Ano do Modelo</span>
-  <input type="text" class="form-control">
-</div>
-<div class="input-group mb-3">
-  <span class="input-group-text">Modelo</span>
-  <input type="text" class="form-control">
-  <span class="input-group-text">Marca</span>
-  <input type="text" class="form-control">
-</div>
+<div class="container-cadastro">
 
-<div class="input-cores">
   <div class="input-group mb-3">
-    <span class="input-group-text">Cores</span>
+    <span class="input-group-text">Nome do Carro</span>
     <input type="text" class="form-control">
   </div>
-  <ul class="lista-cores">
-    <li>Cor</li>
-    <li>Cor</li>
-    <li>Cor</li>
-    <li>Cor</li>
-  </ul>
-</div>
+  <div class="input-group mb-3">
+    <span class="input-group-text">Ano de Fabricação</span>
+    <input type="text" class="form-control">
+    <span class="input-group-text">Ano do Modelo</span>
+    <input type="text" class="form-control">
+  </div>
+  <div class="input-group mb-3">
+    <span class="input-group-text">Modelo</span>
+    <input type="text" class="form-control">
+    <span class="input-group-text">Marca</span>
+    <input type="text" class="form-control">
+  </div>
+
+  <div class="input-cores">
+    <div class="input-group mb-3">
+      <span class="input-group-text">Cores</span>
+      <input type="text" class="form-control">
+    </div>
+    <ul class="lista-cores">
+      <li>Cor</li>
+      <li>Cor</li>
+      <li>Cor</li>
+      <li>Cor</li>
+    </ul>
+  </div>
 
   <div class="card-botoes">
     <button class="btn btn-danger">Cancelar</button>
-    <button class="btn btn-success">Cadastrar</button>
+    <button class="btn btn-success" data-bs-toggle="modal" data-bs-target="#modal1">Cadastrar</button>
   </div>
+</div>
 
+
+<div class="modal" id="modal1" tabindex="-1" aria-labelledby="modal1Label" aria-hidden="true">
+  <div class="modal-dialog">
+    <div class="modal-content">
+      <div class="modal-header">
+        <h5 class="modal-title">Confirmar cadastro</h5>
+        <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+      </div>
+      <div class="modal-body">
+        <p>Confirme as informcações antes de cadastrar:</p>
+      </div>
+      <ul>
+        <li>Nome do Carro</li>
+        <li>Ano de Faricação</li>
+        <li>Ano do Modelo</li>
+        <li>Modelo</li>
+        <li>Marca</li>
+        <li>Cores
+          <ul>
+            <li>Cor</li>
+            <li>Cor</li>
+            <li>Cor</li>
+            <li>Cor</li>
+          </ul>
+        </li>
+      </ul>
+      <div class="modal-footer">
+        <button type="button" class="btn btn-danger" data-bs-dismiss="modal">Voltar</button>
+        <button type="button" class="btn btn-success">Confirmar</button>
+      </div>
+    </div>
+  </div>
+</div>
