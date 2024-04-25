@@ -7,6 +7,9 @@ import { CardComponent } from './shared/card/card.component';
 import { HomeComponent } from './pages/home/home.component';
 import { CardInicioComponent } from './components/card-inicio/card-inicio.component';
 import { CadastroFormComponent } from './components/cadastro-form/cadastro-form.component';
+import { HttpClientModule } from '@angular/common/http';
+import { ListaComponent } from './pages/lista/lista.component';
+
 
 @NgModule({
   declarations: [
@@ -14,11 +17,13 @@ import { CadastroFormComponent } from './components/cadastro-form/cadastro-form.
     CardComponent,
     HomeComponent,
     CardInicioComponent,
-    CadastroFormComponent
+    CadastroFormComponent,
+    ListaComponent
   ],
   imports: [
     BrowserModule,
-    AppRoutingModule
+    AppRoutingModule,
+    HttpClientModule
   ],
   providers: [],
   bootstrap: [AppComponent]

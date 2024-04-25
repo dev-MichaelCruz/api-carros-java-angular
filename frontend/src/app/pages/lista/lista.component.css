@@ -1,0 +1,23 @@
+.container-lista {
+  padding: 1rem;
+  margin: 1rem;
+  border: 1px solid rgb(161, 161, 161);
+  border-radius: 1rem;
+}
+
+.acoes {
+  display: flex;
+  justify-content: center;
+}
+
+th, td {
+  text-align: center  ;
+}
+
+.btn {
+  margin: 0 10px;
+}
+
+.dados-atualizacao {
+  padding: 1rem;
+}

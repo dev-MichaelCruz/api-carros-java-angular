@@ -1,0 +1,117 @@
+<div ngIf="carregando">
+  <div class="spinner-border" role="status">
+    <span class="visually-hidden">Loading...</span>
+  </div>
+</div>
+
+<div class="container-lista">
+  <table class="table">
+    <thead>
+      <tr>
+        <th scope="col">ID</th>
+        <th scope="col">Nome</th>
+        <th scope="col">Modelo</th>
+        <th scope="col">Ano Fabricação</th>
+        <th scope="col">Ano do Modelo</th>
+        <th scope="col">Marca</th>
+        <th scope="col">Ações</th>
+      </tr>
+    </thead>
+    <!-- //ngFor VAI AQUI!!!!!!!!!!!!========================================================== -->
+    <tbody>
+      <tr>
+        <td>ID</td>
+        <td>NomeCarro</td>
+        <td>ModeloCarro</td>
+        <td>AnoFabricacao</td>
+        <td>AnoModelo</td>
+        <td>Marca</td>
+        <td class="acoes">
+          <button class="btn btn-danger" data-bs-toggle="modal" data-bs-target="#modalExclusao">Excluir</button>
+          <button class="btn btn-warning" data-bs-toggle="modal" data-bs-target="#modalAtualizacao">Atualizar</button>
+        </td>
+      </tr>
+    </tbody>
+  </table>
+  <div class="botoes">
+    <button type="button" class="btn btn-secondary" (click)="redirecionar('')">Voltar</button>
+  </div>
+</div>
+
+
+<!-- MODAL EXCLUSÃO -->
+<div class="modal" id="modalExclusao" tabindex="-1" aria-labelledby="modal1Label" aria-hidden="true">
+  <div class="modal-dialog">
+    <div class="modal-content">
+      <div class="modal-header">
+        <h5 class="modal-title">Confirmar Exclusão</h5>
+        <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+      </div>
+      <div class="modal-body">
+        <p>Confirme as informcações antes de excluir</p>
+      </div>
+      <ul>
+        <li>Nome do Carro</li>
+        <li>Ano de Faricação</li>
+        <li>Ano do Modelo</li>
+        <li>Modelo</li>
+        <li>Marca</li>
+      </ul>
+      <div class="modal-footer">
+        <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Voltar</button>
+        <button type="button" class="btn btn-danger">Confirmar</button>
+      </div>
+    </div>
+  </div>
+</div>
+
+
+<!-- MODAL ATUALIZAÇÃO -->
+
+<div class="modal" id="modalAtualizacao" tabindex="-1" aria-labelledby="modal1Label" aria-hidden="true">
+  <div class="modal-dialog">
+    <div class="modal-content">
+      <div class="modal-header">
+        <h3 class="modal-title">Atualizar carro</h3>
+        <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+      </div>
+      <div class="dados-atualizacao">
+
+        <div class="input-group mb-3">
+          <span class="input-group-text">Nome do Carro</span>
+          <input type="text" class="form-control" disabled>
+        </div>
+        <div class="input-group mb-3">
+          <span class="input-group-text">Ano de Fabricação</span>
+          <input type="text" class="form-control">
+          <span class="input-group-text">Ano do Modelo</span>
+          <input type="text" class="form-control">
+        </div>
+        <div class="input-group mb-3">
+          <span class="input-group-text">Modelo</span>
+          <input type="text" class="form-control">
+          <span class="input-group-text">Marca</span>
+          <input type="text" class="form-control">
+        </div>
+
+        <div class="input-cores">
+          <div class="input-group mb-3">
+            <span class="input-group-text">Cores</span>
+            <input type="text" class="form-control">
+          </div>
+          <ul class="lista-cores">
+            <li>Cor</li>
+            <li>Cor</li>
+            <li>Cor</li>
+            <li>Cor</li>
+          </ul>
+        </div>
+      </div>
+
+      <div class="modal-footer">
+        <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Voltar</button>
+        <button type="button" class="btn btn-danger">Confirmar</button>
+      </div>
+    </div>
+  </div>
+</div>

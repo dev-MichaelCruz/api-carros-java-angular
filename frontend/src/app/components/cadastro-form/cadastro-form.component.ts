@@ -1,4 +1,5 @@
 import { Component } from '@angular/core';
+import { Router } from '@angular/router';
 
 @Component({
   selector: 'app-cadastro-form',
@@ -7,6 +8,10 @@ import { Component } from '@angular/core';
 })
 export class CadastroFormComponent {
 
+constructor(private router: Router) { }
 
+  redirecionar(rota: string) {
+    this.router.navigate([rota])
+  }
 
 }
