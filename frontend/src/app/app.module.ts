@@ -3,7 +3,6 @@ import { BrowserModule } from '@angular/platform-browser';
 
 import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
-import { CardComponent } from './shared/card/card.component';
 import { HomeComponent } from './pages/home/home.component';
 import { CardInicioComponent } from './components/card-inicio/card-inicio.component';
 import { CadastroFormComponent } from './components/cadastro-form/cadastro-form.component';
@@ -14,7 +13,6 @@ import { ListaComponent } from './pages/lista/lista.component';
 @NgModule({
   declarations: [
     AppComponent,
-    CardComponent,
     HomeComponent,
     CardInicioComponent,
     CadastroFormComponent,
