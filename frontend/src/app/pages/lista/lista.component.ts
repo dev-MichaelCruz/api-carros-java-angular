@@ -20,9 +20,7 @@ export class ListaComponent implements OnInit {
     this.carregarTabela()
 
   }
-  carregarTabela() {
-    this.carroService.carregarTabela();
-    this.carregando = false
+  carregarTabela(): void {
   }
 
   redirecionar(rota: string) {
