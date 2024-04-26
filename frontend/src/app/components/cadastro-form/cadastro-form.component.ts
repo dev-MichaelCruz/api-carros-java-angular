@@ -4,6 +4,7 @@ import { Cor } from 'src/app/model/Cor';
 import { CarroService } from 'src/app/services/carro-service.service';
 import { Carro } from 'src/app/model/Carro';
 import { Marca } from 'src/app/model/Marca';
+import { FormBuilder, FormGroup, Validators } from '@angular/forms';
 
 @Component({
   selector: 'app-cadastro-form',
@@ -12,9 +13,9 @@ import { Marca } from 'src/app/model/Marca';
 })
 export class CadastroFormComponent implements OnInit {
 
-  constructor(private router: Router, private carroService: CarroService) { }
+  cadastroCarroForm: FormGroup = new FormGroup({})
 
-  novaCor: string = ''
+  novaCor: string = '';
   listaCores: Cor[] = []
 
   nomeCarro!: string;
@@ -23,8 +24,19 @@ export class CadastroFormComponent implements OnInit {
   modelo!: string;
   marcaNome!: string;
 
+  constructor(private router: Router,
+              private carroService: CarroService,
+              private formBuilder: FormBuilder) { }
+
   ngOnInit(): void {
 
+    this.cadastroCarroForm = this.formBuilder.group({
+      nomeCarro: ['', Validators.required],
+      anoFabricacao: ['', Validators.required],
+      anoModelo: ['',Validators.required],
+      modelo: ['', Validators.required],
+      marcaNome: ['', Validators.required]
+    })
   }
 
   adicionarCorNaLista(nome: string) {
@@ -40,8 +52,11 @@ export class CadastroFormComponent implements OnInit {
     this.carroService.adicionarCarro(novoCarro)
   }
 
+  excluirCor(index: number){
+    this.listaCores.splice(index, 1);
+  }
+
   redirecionar(rota: string) {
     this.router.navigate([rota])
   }
-
 }

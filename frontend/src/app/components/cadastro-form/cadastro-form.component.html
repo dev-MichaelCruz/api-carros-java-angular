@@ -1,75 +1,98 @@
 <div class="container-cadastro m-5">
+  <form [formGroup]="cadastroCarroForm">
+      <div class="input-group mb-1">
+        <span class="input-group-text">Nome do Carro</span>
+        <input type="text" class="form-control" [(ngModel)]="nomeCarro" formControlName="nomeCarro">
+      </div>
+      <small class="text-danger" *ngIf="cadastroCarroForm.get('nomeCarro')?.invalid && cadastroCarroForm.get('nomeCarro')?.touched" style="color: red">
+      *O campo 'Nome do carro' é obrigatório!
+      </small>
 
-  <div class="input-group mb-3">
-    <span class="input-group-text">Nome do Carro</span>
-    <input type="text" class="form-control" [(ngModel)]="nomeCarro">
-  </div>
-  <div class="input-group mb-3">
-    <span class="input-group-text" >Ano de Fabricação</span>
-    <input type="text" class="form-control" [(ngModel)]="anoFabricacao">
-    <span class="input-group-text" >Ano do Modelo</span>
-    <input type="text" class="form-control" [(ngModel)]="anoModelo">
-  </div>
-  <div class="input-group mb-3">
-    <span class="input-group-text" >Modelo</span>
-    <input type="text" class="form-control" [(ngModel)]="modelo">
-    <span class="input-group-text">Marca</span>
-    <input type="text" class="form-control" [(ngModel)]="marcaNome">
-  </div>
+      <div class="input-group mb-1">
+        <span class="input-group-text" >Ano de Fabricação</span>
+        <input type="text" class="form-control" [(ngModel)]="anoFabricacao" formControlName="anoFabricacao">
+      </div>
+      <small class="text-danger" *ngIf="cadastroCarroForm.get('anoFabricacao')?.invalid && cadastroCarroForm.get('anoFabricacao')?.touched" style="color: red">
+        *O campo 'Ano de Fabricação' é obrigatório!
+      </small>
 
-  <div class="input-cores">
-    <div class="input-group-cores mb-3">
+      <div class="input-group mb-1">
+        <span class="input-group-text" >Ano do Modelo</span>
+        <input type="text" class="form-control" [(ngModel)]="anoModelo" formControlName="anoModelo">
+      </div>
+      <small class="text-danger" *ngIf="cadastroCarroForm.get('anoModelo')?.invalid && cadastroCarroForm.get('anoModelo')?.touched" style="color: red">
+        *O campo 'Ano do modelo' é obrigatório!
+      </small>
 
-      <span class="input-group-text">Cores</span>
-      <input type="text" class="form-control" [(ngModel)]="novaCor">
-      <button type="button" class="btn btn-success mt-1" (click)="adicionarCorNaLista(novaCor)"> Adicionar cor</button>
+    <div class="input-group mb-1">
+      <span class="input-group-text" >Modelo</span>
+      <input type="text" class="form-control" [(ngModel)]="modelo" formControlName="modelo">
+    </div>
+    <small class="text-danger" *ngIf="cadastroCarroForm.get('modelo')?.invalid && cadastroCarroForm.get('modelo')?.touched" style="color: red">
+      *O campo 'Modelo' é obrigatório!
+    </small>
+
+    <div class="input-group mb-1">
+      <span class="input-group-text">Marca</span>
+      <input type="text" class="form-control" [(ngModel)]="marcaNome" formControlName="marcaNome">
+    </div>
+    <small class="text-danger" *ngIf="cadastroCarroForm.get('marcaNome')?.invalid && cadastroCarroForm.get('marcaNome')?.touched" style="color: red">
+      *O campo 'Marca' é obrigatório!
+    </small>
+  </form>
 
 
-      <div class="card-botoes mt-5">
-        <button class="btn btn-danger" (click)="redirecionar('')">Cancelar</button>
-        <button class="btn btn-success" data-bs-toggle="modal" data-bs-target="#modal1">Cadastrar</button>
+    <div class="input-cores">
+      <div class="input-group-cores mb-1">
+        <span class="input-group-text">Cores</span>
+        <input type="text" class="form-control" [(ngModel)]="novaCor">
+        <button type="button" class="btn btn-success mt-1" (click)="adicionarCorNaLista(novaCor)"> Adicionar cor</button>
+
+        <div class="card-botoes mt-5">
+          <button class="btn btn-danger" (click)="redirecionar('')">Cancelar</button>
+          <button class="btn btn-success" data-bs-toggle="modal" data-bs-target="#modalCadastro" [disabled]="cadastroCarroForm.invalid">Cadastrar</button>
+        </div>
+      </div>
+
+      <div class="input-group-cores ms-2">
+        <ul *ngFor="let cor of listaCores; let index = index">
+          <li class="m-1">{{ cor.nome }} <button class="btn btn-secondary btn-small" (click)="excluirCor(index)">X</button></li>
+        </ul>
       </div>
     </div>
-
-    <div class="input-group-cores ms-2">
-      <ul *ngFor="let cor of listaCores">
-        <li class="m-1">{{ cor.nome }}</li>
-      </ul>
-    </div>
-  </div>
 
 </div>
 
 
-<div class="modal" id="modal1" tabindex="-1" aria-labelledby="modal1Label" aria-hidden="true">
+<div class="modal" id="modalCadastro" tabindex="-1" aria-labelledby="modal1Label" aria-hidden="true">
   <div class="modal-dialog">
     <div class="modal-content">
       <div class="modal-header">
-        <h5 class="modal-title">Confirmar cadastro</h5>
+        <h5 class="modal-title">** CONFIRMAÇÃO DE CADASTRO **</h5>
         <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
       </div>
+
       <div class="modal-body">
-        <p>Confirme as informcações antes de cadastrar:</p>
+        <i>CONFIRME AS INFORMAÇÕES ANTES DE CADASTRAR:</i>
       </div>
       <ul>
-        <li>Nome do Carro</li>
-        <li>Ano de Faricação</li>
-        <li>Ano do Modelo</li>
-        <li>Modelo</li>
-        <li>Marca</li>
-        <li>Cores
-          <ul>
-            <li>Cor</li>
-            <li>Cor</li>
-            <li>Cor</li>
-            <li>Cor</li>
+        <li><b>Nome do carro: </b><i>{{ nomeCarro }}</i></li>
+        <li><b>Ano de fabricação: </b><i>{{ anoFabricacao }}</i></li>
+        <li><b>Ano do modelo: </b><i>{{ anoModelo }}</i></li>
+        <li><b>Modelo: </b><i>{{ modelo }}</i></li>
+        <li><b>Marca: </b><i>{{ marcaNome }}</i></li>
+        <li><b>Cores: </b>
+          <ul *ngFor="let cor of listaCores; let index = index">
+            <li><i>{{ cor.nome }}</i></li>
           </ul>
         </li>
       </ul>
+
       <div class="modal-footer">
         <button type="button" class="btn btn-danger" data-bs-dismiss="modal">Voltar</button>
         <button type="button" class="btn btn-success" (click)="adicionarCarro()">Confirmar</button>
       </div>
+
     </div>
   </div>
 </div>

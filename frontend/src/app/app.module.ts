@@ -8,7 +8,7 @@ import { CardInicioComponent } from './components/card-inicio/card-inicio.compon
 import { CadastroFormComponent } from './components/cadastro-form/cadastro-form.component';
 import { HttpClientModule } from '@angular/common/http';
 import { ListaComponent } from './pages/lista/lista.component';
-import { FormsModule } from '@angular/forms';
+import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 
 
 @NgModule({
@@ -23,7 +23,8 @@ import { FormsModule } from '@angular/forms';
     BrowserModule,
     AppRoutingModule,
     HttpClientModule,
-    FormsModule
+    FormsModule,
+    ReactiveFormsModule
   ],
   providers: [],
   bootstrap: [AppComponent]
