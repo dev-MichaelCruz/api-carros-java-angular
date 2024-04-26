@@ -2,7 +2,7 @@ import { Cor } from "./Cor";
 import { Marca } from "./Marca";
 
 export class Carro {
-  id?: number;
+  id: number = 0;
   nome: string;
   anoFabricacao: number;
   anoModelo: number;

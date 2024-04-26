@@ -5,11 +5,6 @@
   border-radius: 1rem;
 }
 
-.acoes {
-  display: flex;
-  justify-content: center;
-}
-
 th, td {
   text-align: center  ;
 }
@@ -20,4 +15,8 @@ th, td {
 
 .dados-atualizacao {
   padding: 1rem;
+}
+
+.nome-cor {
+  list-style: none;
 }

@@ -14,20 +14,26 @@
         <th scope="col">Ano Fabricação</th>
         <th scope="col">Ano do Modelo</th>
         <th scope="col">Marca</th>
+        <th scope="col">Cores</th>
         <th scope="col">Ações</th>
       </tr>
     </thead>
-    <!-- //ngFor VAI AQUI!!!!!!!!!!!!========================================================== -->
+
     <tbody >
-      <tr *ngFor="let carro of listaCarros; let index = index">
+      <tr *ngFor="let carro of listaCarros">
         <td>{{ carro.id }}</td>
         <td>{{ carro.nome }}</td>
         <td>{{ carro.modelo }}</td>
         <td>{{ carro.anoFabricacao }}</td>
-        <td>AnoModelo</td>
-        <td>Marca</td>
-        <td class="acoes">
-          <button class="btn btn-danger" data-bs-toggle="modal" data-bs-target="#modalExclusao">Excluir</button>
+        <td>{{ carro.anoModelo }}</td>
+        <td>{{ carro.marca.nome }}</td>
+        <td>
+          <ul *ngFor="let cor of carro.cores">
+            <p class="nome-cor">{{cor.nome}}</p>
+          </ul>
+        </td>
+        <td>
+          <button class="btn btn-danger" (click)="excluirCarro(carro.id)">Excluir</button>
           <button class="btn btn-warning" data-bs-toggle="modal" data-bs-target="#modalAtualizacao">Atualizar</button>
         </td>
       </tr>
@@ -51,7 +57,7 @@
         <p>Confirme as informcações antes de excluir</p>
       </div>
       <ul>
-        <li>Nome do Carro</li>
+        <li></li>
         <li>Ano de Faricação</li>
         <li>Ano do Modelo</li>
         <li>Modelo</li>

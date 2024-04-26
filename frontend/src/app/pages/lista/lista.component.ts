@@ -10,6 +10,9 @@ import { Carro } from 'src/app/model/Carro';
   styleUrls: ['./lista.component.css']
 })
 export class ListaComponent implements OnInit {
+number(arg0: number|undefined): number {
+throw new Error('Method not implemented.');
+}
 
   listaCarros: Carro[] = []
 
@@ -25,8 +28,16 @@ export class ListaComponent implements OnInit {
     })
   }
 
+  excluirCarro(id: number): void {
+    this.carroService.excluirCarro(id)
+  }
+
   redirecionar(rota: string) {
     this.router.navigate([rota])
   }
 
+  num(id: any): number {
+    let numero = Number(id)
+    return numero
+  }
 }

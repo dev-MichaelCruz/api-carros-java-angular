@@ -34,7 +34,10 @@ export class CarroService {
     })
   }
 
-  excluirCarro(idCarro: number): void {
-    this.http.delete(`${this.apiUrl}/${idCarro}`)
+  excluirCarro(id: number): void {
+    this.http.delete(`${this.apiUrl}/${id}`).subscribe({
+      next: response => console.log(response)
+
+    })
   }
 }
