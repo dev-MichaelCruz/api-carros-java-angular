@@ -1,5 +1,5 @@
 import { CarroService } from './../../services/carro-service.service';
-import { Component, OnInit } from '@angular/core';
+import { Component, DoCheck, OnChanges, OnInit } from '@angular/core';
 import { Router } from '@angular/router';
 import { Observable } from 'rxjs';
 import { Carro } from 'src/app/model/Carro';
@@ -10,23 +10,33 @@ import { Carro } from 'src/app/model/Carro';
   styleUrls: ['./lista.component.css']
 })
 export class ListaComponent implements OnInit {
-number(arg0: number|undefined): number {
-throw new Error('Method not implemented.');
-}
+
+  carregando!: boolean;
 
   listaCarros: Carro[] = []
+  carroExclusao!: Carro;
+
 
   constructor(private router: Router,
               private carroService: CarroService
   ) { }
 
   ngOnInit(): void {
+    setTimeout(() => {
+      this.carregando= true
+    }, 20000);
     this.carroService.buscarCarros().subscribe({
       next: (lista: Carro[]) => {
         this.listaCarros = lista
       }
     })
+    this.carregando =false
   }
+
+  buscarCarroExclusao(index: number): void {
+    this.carroExclusao = this.listaCarros[index]
+  }
+
 
   excluirCarro(id: number): void {
     this.carroService.excluirCarro(id)
@@ -36,8 +46,4 @@ throw new Error('Method not implemented.');
     this.router.navigate([rota])
   }
 
-  num(id: any): number {
-    let numero = Number(id)
-    return numero
-  }
 }
