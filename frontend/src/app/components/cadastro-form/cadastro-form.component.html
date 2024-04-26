@@ -18,22 +18,26 @@
   </div>
 
   <div class="input-cores">
-    <div class="input-group mb-3">
+    <div class="input-group-cores mb-3">
+
       <span class="input-group-text">Cores</span>
-      <input type="text" class="form-control">
+      <input type="text" class="form-control" [(ngModel)]="novaCor">
+      <button type="button" class="btn btn-success mt-1" (click)="adicionarCorNaLista(novaCor)"> Adicionar cor</button>
+
+
+      <div class="card-botoes mt-5">
+        <button class="btn btn-danger" (click)="redirecionar('')">Cancelar</button>
+        <button class="btn btn-success" data-bs-toggle="modal" data-bs-target="#modal1">Cadastrar</button>
+      </div>
     </div>
-    <ul class="lista-cores">
-      <li>Cor</li>
-      <li>Cor</li>
-      <li>Cor</li>
-      <li>Cor</li>
-    </ul>
+
+    <div class="input-group-cores ms-2">
+      <ul *ngFor="let cor of listaCores">
+        <li class="m-1">{{ cor.nome }}</li>
+      </ul>
+    </div>
   </div>
 
-  <div class="card-botoes">
-    <button class="btn btn-danger" (click)="redirecionar('')">Cancelar</button>
-    <button class="btn btn-success" data-bs-toggle="modal" data-bs-target="#modal1">Cadastrar</button>
-  </div>
 </div>
 
 

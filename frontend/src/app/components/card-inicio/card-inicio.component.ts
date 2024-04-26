@@ -1,5 +1,5 @@
 import { Router } from '@angular/router';
-import { CarroServiceService } from './../../services/carro-service.service';
+import { CarroService } from './../../services/carro-service.service';
 import { Component } from '@angular/core';
 
 @Component({
@@ -9,9 +9,15 @@ import { Component } from '@angular/core';
 })
 export class CardInicioComponent {
 
-  constructor(private router: Router){}
+  constructor(private router: Router,
+              private carroService: CarroService
+  ){}
 
   redirecionar(rota: string) {
     this.router.navigate([rota])
+  }
+
+  buscarDados() {
+    this.carroService.buscarCarros();
   }
 }

@@ -1,4 +1,4 @@
-import { CarroServiceService } from './../../services/carro-service.service';
+import { CarroService } from './../../services/carro-service.service';
 import { Component, OnInit } from '@angular/core';
 import { Router } from '@angular/router';
 
@@ -12,7 +12,7 @@ export class ListaComponent implements OnInit {
   carregando!: boolean;
 
   constructor(private router: Router,
-              private carroService: CarroServiceService
+              private carroService: CarroService
   ) { }
 
   ngOnInit(): void {
