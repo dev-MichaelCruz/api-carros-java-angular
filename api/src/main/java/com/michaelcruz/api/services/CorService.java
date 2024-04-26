@@ -29,4 +29,8 @@ public class CorService {
 
     }
 
+
+    public List<Cor> listarCores(){
+        return corRepository.findAll();
+    }
 }
