@@ -20,9 +20,12 @@ export class CarroService {
   buscarCarros(): void {
     this.http.get<Carro[]>(this.apiUrl).subscribe({
       next: (lista: Carro[]) => {
+        this.listaCarros = [];
         lista.forEach(carro => {
           this.listaCarros.push(carro);
         });
+        console.log(this.listaCarros);
+
       },
       error: error => {
         console.error('Erro ao buscar tabela:', error);

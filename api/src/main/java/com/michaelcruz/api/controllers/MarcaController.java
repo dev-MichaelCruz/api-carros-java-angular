@@ -10,6 +10,11 @@ import java.util.List;
 
 @RestController
 @RequestMapping("/api/v1/marcas")
+@CrossOrigin(value = "http://localhost:4200",
+        methods = {RequestMethod.GET,
+                RequestMethod.POST,
+                RequestMethod.PUT,
+                RequestMethod.DELETE})
 public class MarcaController {
 
     @Autowired
