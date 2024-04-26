@@ -1,6 +1,8 @@
 import { CarroService } from './../../services/carro-service.service';
 import { Component, OnInit } from '@angular/core';
 import { Router } from '@angular/router';
+import { Observable } from 'rxjs';
+import { Carro } from 'src/app/model/Carro';
 
 @Component({
   selector: 'app-lista',
@@ -9,18 +11,18 @@ import { Router } from '@angular/router';
 })
 export class ListaComponent implements OnInit {
 
-  carregando!: boolean;
+  listaCarros: Carro[] = []
 
   constructor(private router: Router,
               private carroService: CarroService
   ) { }
 
   ngOnInit(): void {
-    this.carregando = true
-    this.carregarTabela()
-
-  }
-  carregarTabela(): void {
+    this.carroService.buscarCarros().subscribe({
+      next: (lista: Carro[]) => {
+        this.listaCarros = lista
+      }
+    })
   }
 
   redirecionar(rota: string) {

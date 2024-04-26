@@ -2,6 +2,7 @@ import { HttpClient } from '@angular/common/http';
 import { Injectable } from '@angular/core';
 import { Router } from '@angular/router';
 import { Carro } from '../model/Carro';
+import { Observable } from 'rxjs';
 
 @Injectable({
   providedIn: 'root'
@@ -17,26 +18,13 @@ export class CarroService {
   }
 
   //VOID
-  buscarCarros(): void {
-    this.http.get<Carro[]>(this.apiUrl).subscribe({
-      next: (lista: Carro[]) => {
-        this.listaCarros = [];
-        lista.forEach(carro => {
-          this.listaCarros.push(carro);
-        });
-        console.log(this.listaCarros);
-
-      },
-      error: error => {
-        console.error('Erro ao buscar tabela:', error);
-      }
-    });
+  buscarCarros(): Observable<Carro[]>{
+    return this.http.get<Carro[]>(this.apiUrl)
   }
 
 
-
   adicionarCarro(carro: Carro): void {
-    this.http.post(this.apiUrl, carro).subscribe({
+    this.http.post(this.apiUrl, {carro}).subscribe({
       next: response => console.log(response)
     })
   }

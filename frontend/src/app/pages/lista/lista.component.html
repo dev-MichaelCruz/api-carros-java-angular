@@ -18,12 +18,12 @@
       </tr>
     </thead>
     <!-- //ngFor VAI AQUI!!!!!!!!!!!!========================================================== -->
-    <tbody>
-      <tr>
-        <td>ID</td>
-        <td>NomeCarro</td>
-        <td>ModeloCarro</td>
-        <td>AnoFabricacao</td>
+    <tbody >
+      <tr *ngFor="let carro of listaCarros; let index = index">
+        <td>{{ carro.id }}</td>
+        <td>{{ carro.nome }}</td>
+        <td>{{ carro.modelo }}</td>
+        <td>{{ carro.anoFabricacao }}</td>
         <td>AnoModelo</td>
         <td>Marca</td>
         <td class="acoes">

@@ -44,19 +44,25 @@ export class CadastroFormComponent implements OnInit {
     this.novaCor = ``
   }
 
+  // finalizarCadastro(){
+  //   this.adicionarCarro();
+
+  // }
+
   adicionarCarro(){
     const marca = new Marca(this.marcaNome)
     const novoCarro = new Carro(this.nomeCarro, this.anoFabricacao,
       this.anoModelo, this.modelo, marca, this.listaCores)
 
     this.carroService.adicionarCarro(novoCarro)
+    this.redirecionar('lista')
   }
 
   excluirCor(index: number){
     this.listaCores.splice(index, 1);
   }
 
-  redirecionar(rota: string) {
+  async redirecionar(rota: string) {
     this.router.navigate([rota])
   }
 }
