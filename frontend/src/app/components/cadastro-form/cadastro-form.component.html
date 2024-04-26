@@ -2,19 +2,19 @@
 
   <div class="input-group mb-3">
     <span class="input-group-text">Nome do Carro</span>
-    <input type="text" class="form-control">
+    <input type="text" class="form-control" [(ngModel)]="nomeCarro">
   </div>
   <div class="input-group mb-3">
-    <span class="input-group-text">Ano de Fabricação</span>
-    <input type="text" class="form-control">
-    <span class="input-group-text">Ano do Modelo</span>
-    <input type="text" class="form-control">
+    <span class="input-group-text" >Ano de Fabricação</span>
+    <input type="text" class="form-control" [(ngModel)]="anoFabricacao">
+    <span class="input-group-text" >Ano do Modelo</span>
+    <input type="text" class="form-control" [(ngModel)]="anoModelo">
   </div>
   <div class="input-group mb-3">
-    <span class="input-group-text">Modelo</span>
-    <input type="text" class="form-control">
+    <span class="input-group-text" >Modelo</span>
+    <input type="text" class="form-control" [(ngModel)]="modelo">
     <span class="input-group-text">Marca</span>
-    <input type="text" class="form-control">
+    <input type="text" class="form-control" [(ngModel)]="marcaNome">
   </div>
 
   <div class="input-cores">
@@ -68,7 +68,7 @@
       </ul>
       <div class="modal-footer">
         <button type="button" class="btn btn-danger" data-bs-dismiss="modal">Voltar</button>
-        <button type="button" class="btn btn-success">Confirmar</button>
+        <button type="button" class="btn btn-success" (click)="adicionarCarro()">Confirmar</button>
       </div>
     </div>
   </div>

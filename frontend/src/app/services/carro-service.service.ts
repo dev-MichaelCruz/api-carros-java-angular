@@ -36,7 +36,9 @@ export class CarroService {
 
 
   adicionarCarro(carro: Carro): void {
-    this.http.post(this.apiUrl, carro)
+    this.http.post(this.apiUrl, carro).subscribe({
+      next: response => console.log(response)
+    })
   }
 
   atualizarCarro(idCarro: number, carroAtualizar: Carro): void {

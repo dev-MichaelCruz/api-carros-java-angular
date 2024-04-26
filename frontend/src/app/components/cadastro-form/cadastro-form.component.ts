@@ -1,7 +1,9 @@
 import { Component, OnInit } from '@angular/core';
 import { Router } from '@angular/router';
 import { Cor } from 'src/app/model/Cor';
-import { CorService } from 'src/app/services/cor.service';
+import { CarroService } from 'src/app/services/carro-service.service';
+import { Carro } from 'src/app/model/Carro';
+import { Marca } from 'src/app/model/Marca';
 
 @Component({
   selector: 'app-cadastro-form',
@@ -10,10 +12,16 @@ import { CorService } from 'src/app/services/cor.service';
 })
 export class CadastroFormComponent implements OnInit {
 
-  constructor(private router: Router, private corService: CorService) { }
+  constructor(private router: Router, private carroService: CarroService) { }
 
   novaCor: string = ''
   listaCores: Cor[] = []
+
+  nomeCarro!: string;
+  anoFabricacao!: number;
+  anoModelo!: number;
+  modelo!: string;
+  marcaNome!: string;
 
   ngOnInit(): void {
 
@@ -24,8 +32,12 @@ export class CadastroFormComponent implements OnInit {
     this.novaCor = ``
   }
 
-  submeterCores(){
-    this.corService.adicionarCor(this.listaCores);
+  adicionarCarro(){
+    const marca = new Marca(this.marcaNome)
+    const novoCarro = new Carro(this.nomeCarro, this.anoFabricacao,
+      this.anoModelo, this.modelo, marca, this.listaCores)
+
+    this.carroService.adicionarCarro(novoCarro)
   }
 
   redirecionar(rota: string) {

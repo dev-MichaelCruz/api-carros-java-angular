@@ -23,7 +23,7 @@ export class CardInicioComponent {
 
   buscarDados() {
     // this.corService.buscarCores();
-    // this.carroService.buscarCarros();
-    this.marcaService.buscarMarcas();
+    this.carroService.buscarCarros();
+    // this.marcaService.buscarMarcas();
   }
 }
