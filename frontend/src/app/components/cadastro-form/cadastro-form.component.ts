@@ -51,8 +51,7 @@ export class CadastroFormComponent implements OnInit {
 
   adicionarCarro(){
     const marca = new Marca(this.marcaNome)
-    const novoCarro = new Carro(this.nomeCarro, this.anoFabricacao,
-      this.anoModelo, this.modelo, marca, this.listaCores)
+    const novoCarro = new Carro(this.nomeCarro, this.anoFabricacao, this.anoModelo, this.modelo, marca, this.listaCores)
 
     this.carroService.adicionarCarro(novoCarro)
     this.redirecionar('lista')

@@ -13,8 +13,7 @@ export class CarroService {
 
   listaCarros: Carro[] =[];
 
-  constructor(private http: HttpClient,
-              private router: Router) {
+  constructor(private http: HttpClient) {
   }
 
   //VOID
@@ -24,7 +23,7 @@ export class CarroService {
 
 
   adicionarCarro(carro: Carro): void {
-    this.http.post(this.apiUrl, {carro}).subscribe({
+    this.http.post(this.apiUrl, carro).subscribe({
       next: response => console.log(response)
     })
   }
