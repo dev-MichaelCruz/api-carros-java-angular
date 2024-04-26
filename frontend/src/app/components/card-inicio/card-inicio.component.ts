@@ -1,6 +1,7 @@
 import { Router } from '@angular/router';
 import { CarroService } from './../../services/carro-service.service';
 import { Component } from '@angular/core';
+import { CorService } from 'src/app/services/cor.service';
 
 @Component({
   selector: 'app-card-inicio',
@@ -10,7 +11,8 @@ import { Component } from '@angular/core';
 export class CardInicioComponent {
 
   constructor(private router: Router,
-              private carroService: CarroService
+              private carroService: CarroService,
+              private corService: CorService
   ){}
 
   redirecionar(rota: string) {
@@ -18,6 +20,6 @@ export class CardInicioComponent {
   }
 
   buscarDados() {
-    this.carroService.buscarCarros();
+    this.corService.buscarCores();
   }
 }

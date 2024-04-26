@@ -13,6 +13,7 @@ export class CorService {
 
   constructor(private http: HttpClient) { }
 
+  //OK
   buscarCores(): void {
     this.http.get<Cor[]>(this.apiUrl).subscribe({
       next: (lista: Cor[]) => {
