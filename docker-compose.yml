@@ -17,17 +17,6 @@ services:
     volumes:
       - mysql_data:/var/lib/mysql
 
-  angular:
-    build:
-      context: ./frontend
-      dockerfile: Dockerfile
-    ports:
-      - "4200:4200"  # Mapeamento da porta do Angular
-    depends_on:
-      - springboot
-    networks:
-      - app_network
-
   springboot:
     build:
       context: ./api
@@ -42,6 +31,18 @@ services:
       - mysql
     networks:
       - app_network
+      
+  angular:
+    build:
+      context: ./frontend
+      dockerfile: Dockerfile
+    ports:
+      - "4200:4200"  # Mapeamento da porta do Angular
+    depends_on:
+      - springboot
+    networks:
+      - app_network
+
   
   nginx:
     image: nginx:latest
