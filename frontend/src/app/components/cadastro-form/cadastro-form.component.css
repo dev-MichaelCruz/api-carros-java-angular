@@ -1,7 +1,16 @@
+.container {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  height: 100vh;
+}
+
 .container-cadastro {
   border: 1px solid rgb(161, 161, 161);
   padding: 2rem;
   border-radius: 1rem;
+  width: 60%;
+  height: fit-content;
 }
 
 .input-cores {
@@ -14,6 +23,7 @@
   height: fit-content;
   /* background-color: aquamarine; */
 }
+
 .input-group-cores {
   align-items: start;
   flex: 1;
@@ -42,4 +52,13 @@
   width: 1.5rem;
   font-size: small;
   opacity: 80%;
+}
+
+
+.input-small {
+  display: flex;
+}
+
+small {
+  flex: 1;
 }

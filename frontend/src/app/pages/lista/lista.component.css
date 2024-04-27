@@ -1,16 +1,28 @@
+.container {
+  display: flex;
+  justify-content: center;
+}
 .container-lista {
+  width: 100%;
   padding: 1rem;
   margin: 1rem;
   border: 1px solid rgb(161, 161, 161);
   border-radius: 1rem;
+  display: flex;
+  align-items: center;
+  flex-direction: column;
+}
+
+.table {
+  table-layout: fixed;
 }
 
 th, td {
-  text-align: center  ;
+  text-align: center;
 }
 
 .btn {
-  margin: 0 10px;
+  margin: 5px 10px;
 }
 
 .dados-atualizacao {

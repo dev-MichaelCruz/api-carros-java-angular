@@ -1,125 +1,130 @@
-<div *ngIf="carregando">
-  <div class="spinner-center" role="status">
-    <span class="visually-hidden">Loading...</span>
-  </div>
-</div>
+<div class="container">
 
-<div class="container-lista">
-  <div>
-    <h1>CARROS CADASTRADOS</h1>
+  <div *ngIf="carregando">
+    <div class="spinner-center" role="status">
+      <span class="visually-hidden">Loading...</span>
+    </div>
   </div>
-  <table class="table"  *ngFor="let carro of listaCarros; let index = index">
-    <thead>
-      <tr>
-        <th scope="col">ID</th>
-        <th scope="col">Nome</th>
-        <th scope="col">Modelo</th>
-        <th scope="col">Ano Fabricação</th>
-        <th scope="col">Ano do Modelo</th>
-        <th scope="col">Marca</th>
-        <th scope="col">Cores</th>
-        <th scope="col">Ações</th>
-      </tr>
-    </thead>
 
-    <tbody >
-      <tr >
-        <td>{{ carro.id }}</td>
-        <td>{{ carro.nome }}</td>
-        <td>{{ carro.modelo }}</td>
-        <td>{{ carro.anoFabricacao }}</td>
-        <td>{{ carro.anoModelo }}</td>
-        <td>{{ carro.marca.nome }}</td>
-        <td>
-          <ul *ngFor="let cor of carro.cores">
-            <p class="nome-cor">{{cor.nome}}</p>
-          </ul>
-        </td>
-        <td>
-          <button class="btn btn-danger" data-bs-toggle="modal" data-bs-target="#modalExclusao" (click)="buscarDados(index)">Excluir</button>
-          <button class="btn btn-warning" data-bs-toggle="modal" data-bs-target="#modalAtualizacao"(click)="buscarDados(index)">Atualizar</button>
-        </td>
-      </tr>
-    </tbody>
-  </table>
-  <div class="botoes">
-    <button type="button" class="btn btn-secondary" (click)="redirecionar('')">Voltar</button>
+  <div class="container-lista">
+    <div>
+      <h1>CARROS CADASTRADOS</h1>
+    </div>
+    <br>
+
+    <table class="table"  *ngFor="let carro of listaCarros; let index = index">
+      <thead>
+        <tr>
+          <th scope="col">ID</th>
+          <th scope="col">Nome</th>
+          <th scope="col">Modelo</th>
+          <th scope="col">Ano Fabricação</th>
+          <th scope="col">Ano do Modelo</th>
+          <th scope="col">Marca</th>
+          <th scope="col">Cores</th>
+          <th scope="col">Ações</th>
+        </tr>
+      </thead>
+
+      <tbody >
+        <tr >
+          <td>{{ carro.id }}</td>
+          <td>{{ carro.nome }}</td>
+          <td>{{ carro.modelo }}</td>
+          <td>{{ carro.anoFabricacao }}</td>
+          <td>{{ carro.anoModelo }}</td>
+          <td>{{ carro.marca.nome }}</td>
+          <td>
+            <ul *ngFor="let cor of carro.cores">
+              <p class="nome-cor">{{cor.nome}}</p>
+            </ul>
+          </td>
+          <td>
+            <button class="btn btn-warning" data-bs-toggle="modal" data-bs-target="#modalAtualizacao"(click)="buscarDados(index)">Atualizar</button>
+            <button class="btn btn-danger" data-bs-toggle="modal" data-bs-target="#modalExclusao" (click)="buscarDados(index)">Excluir</button>
+          </td>
+        </tr>
+      </tbody>
+    </table>
+    <div class="botoes">
+      <button type="button" class="btn btn-secondary" (click)="redirecionar('')">Voltar</button>
+    </div>
   </div>
-</div>
 
-<!-- MODAL EXCLUSÃO -->
-<div class="modal" id="modalExclusao" tabindex="-1" aria-labelledby="modal1Label" aria-hidden="true">
-  <div class="modal-dialog">
-    <div class="modal-content">
-      <div class="modal-header">
-        <h5 class="modal-title">Confirmar Exclusão</h5>
-        <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
-      </div>
-      <div class="modal-body">
-        <p>Confirme as informcações antes de excluir</p>
-      </div>
-      <ul>
-        <li><b>ID: </b><i>{{ selId }}</i></li>
-        <li><b>Nome: </b><i>{{ selNome }}</i></li>
-        <li><b>Modelo: </b><i>{{ selModelo }}</i></li>
-        <li><b>Ano de Fabricação: </b><i>{{ selAnoFab }}</i></li>
-        <li><b>Ano do Modelo: </b><i>{{ selAnoMod }}</i></li>
-        <li><b>Marca: </b><i>{{ selMarca }}</i></li>
-      </ul>
-      <div class="modal-footer">
-        <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Voltar</button>
-        <button type="button" class="btn btn-danger"  (click)="excluirCarro(selId)">Confirmar Exclusão</button>
+  <!-- MODAL EXCLUSÃO -->
+  <div class="modal" id="modalExclusao" tabindex="-1" aria-labelledby="modal1Label" aria-hidden="true">
+    <div class="modal-dialog">
+      <div class="modal-content">
+        <div class="modal-header">
+          <h5 class="modal-title">Confirmar Exclusão</h5>
+          <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+        </div>
+        <div class="modal-body">
+          <p>Confirme as informcações antes de excluir</p>
+        </div>
+        <ul>
+          <li><b>ID: </b><i>{{ selId }}</i></li>
+          <li><b>Nome: </b><i>{{ selNome }}</i></li>
+          <li><b>Modelo: </b><i>{{ selModelo }}</i></li>
+          <li><b>Ano de Fabricação: </b><i>{{ selAnoFab }}</i></li>
+          <li><b>Ano do Modelo: </b><i>{{ selAnoMod }}</i></li>
+          <li><b>Marca: </b><i>{{ selMarca }}</i></li>
+        </ul>
+        <div class="modal-footer">
+          <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Voltar</button>
+          <button type="button" class="btn btn-danger"  (click)="excluirCarro(selId)">Confirmar Exclusão</button>
+        </div>
       </div>
     </div>
   </div>
-</div>
 
-<!-- MODAL ATUALIZAÇÃO -->
+  <!-- MODAL ATUALIZAÇÃO -->
 
-<div class="modal" id="modalAtualizacao" tabindex="-1" aria-labelledby="modal1Label" aria-hidden="true">
-  <div class="modal-dialog">
-    <div class="modal-content">
-      <div class="modal-header">
-        <h3 class="modal-title">Atualizar carro</h3>
-        <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
-      </div>
-      <div class="dados-atualizacao">
-
-        <div class="input-group mb-3">
-          <span class="input-group-text">Nome:</span>
-          <input type="text" class="form-control" value="{{selNome}}" disabled>
+  <div class="modal" id="modalAtualizacao" tabindex="-1" aria-labelledby="modal1Label" aria-hidden="true">
+    <div class="modal-dialog">
+      <div class="modal-content">
+        <div class="modal-header">
+          <h3 class="modal-title">Atualizar carro</h3>
+          <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
         </div>
-        <div class="input-group mb-3">
-          <span class="input-group-text">Ano de Fabricação</span>
-          <input type="text" class="form-control" value="{{selAnoFab}}" disabled >
-          <span class="input-group-text">Ano do Modelo</span>
-          <input type="text" class="form-control" value="{{selAnoMod}}" disabled>
-        </div>
-        <div class="input-group mb-3">
-          <span class="input-group-text">Modelo</span>
-          <input type="text" class="form-control" value="{{selModelo}}" disabled>
-          <span class="input-group-text">Marca</span>
-          <input type="text" class="form-control" value="{{ selMarca }}" disabled>
-        </div>
+        <div class="dados-atualizacao">
 
-        <div class="input-cores">
-          <div class="input-lista-cores mb-3">
-            <span class="input-group-text w-50 mb-1">Cores</span>
-            <input type="text" class="form-control" [(ngModel)]="novaCor">
-            <button type="button" class="btn btn-success mt-1" (click)="adicionarCor(novaCor)"> Adicionar cor</button>
+          <div class="input-group mb-3">
+            <span class="input-group-text">Nome:</span>
+            <input type="text" class="form-control" value="{{selNome}}" disabled>
           </div>
-          <div>
-            <ul class="lista-cores" *ngFor="let cor of selCores; let i = index">
-              <li><i>{{ cor.nome }}</i><button class="btn btn-secondary btn-small" (click)="excluirCor(i)">X</button></li>
-            </ul>
+          <div class="input-group mb-3">
+            <span class="input-group-text">Ano de Fabricação</span>
+            <input type="text" class="form-control" value="{{selAnoFab}}" disabled >
+            <span class="input-group-text">Ano do Modelo</span>
+            <input type="text" class="form-control" value="{{selAnoMod}}" disabled>
+          </div>
+          <div class="input-group mb-3">
+            <span class="input-group-text">Modelo</span>
+            <input type="text" class="form-control" value="{{selModelo}}" disabled>
+            <span class="input-group-text">Marca</span>
+            <input type="text" class="form-control" value="{{ selMarca }}" disabled>
           </div>
 
-        </div>
-      </div>
+          <div class="input-cores">
+            <div class="input-lista-cores mb-3">
+              <span class="input-group-text w-50 mb-1">Cores</span>
+              <input type="text" class="form-control" [(ngModel)]="novaCor">
+              <button type="button" class="btn btn-success mt-1" (click)="adicionarCor(novaCor)"> Adicionar cor</button>
+            </div>
+            <div>
+              <ul class="lista-cores" *ngFor="let cor of selCores; let i = index">
+                <li><i>{{ cor.nome }}</i><button class="btn btn-secondary btn-small" (click)="excluirCor(i)">X</button></li>
+              </ul>
+            </div>
 
-      <div class="modal-footer">
-        <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Voltar</button>
-        <button type="button" class="btn btn-success"  data-bs-dismiss="modal" aria-label="Close" (click)="atualizarCarro()">Confirmar</button>
+          </div>
+        </div>
+
+        <div class="modal-footer">
+          <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Voltar</button>
+          <button type="button" class="btn btn-success"  data-bs-dismiss="modal" aria-label="Close" (click)="atualizarCarro()">Confirmar</button>
+        </div>
       </div>
     </div>
   </div>
