@@ -1,0 +1,15 @@
+com\michaelcruz\api\controllers\MarcaController.class
+com\michaelcruz\api\repositories\MarcaRepository.class
+com\michaelcruz\api\repositories\CorRepository.class
+com\michaelcruz\api\services\MarcaService.class
+com\michaelcruz\api\controllers\CarroController.class
+com\michaelcruz\api\controllers\CorController.class
+com\michaelcruz\api\services\CarroServiceImpl.class
+com\michaelcruz\api\util\CarroUtil.class
+com\michaelcruz\api\entities\Carro.class
+com\michaelcruz\api\repositories\CarroRepository.class
+com\michaelcruz\api\services\CarroService.class
+com\michaelcruz\api\entities\Cor.class
+com\michaelcruz\api\entities\Marca.class
+com\michaelcruz\api\services\CorService.class
+com\michaelcruz\api\ApiApplication.class
