@@ -2,6 +2,7 @@
   display: flex;
   justify-content: center;
 }
+
 .container-lista {
   width: 100%;
   padding: 1rem;
@@ -15,10 +16,18 @@
 .table {
   table-layout: fixed;
   width: 90%;
+
+  -webkit-box-shadow: 0px 0px 24px -5px rgba(0,0,0,1);
+  -moz-box-shadow: 0px 0px 24px -5px rgba(0,0,0,1);
+  box-shadow: 0px 0px 24px -5px rgba(0,0,0,1);
 }
 
 th, td {
   text-align: center;
+}
+
+.title {
+  gap: 3rem;
 }
 
 .btn {
@@ -48,4 +57,21 @@ th, td {
   width: 1.5rem;
   font-size: small;
   opacity: 80%;
+}
+
+h1 {
+  background-color: #575e70;
+  padding: 1.5rem;
+  border:2px solid #fff;
+  border-radius: 1.5rem;
+  color: #ffffff;
+  font-weight: bolder;
+
+  -webkit-box-shadow: 0px 0px 24px -5px rgba(0,0,0,1);
+  -moz-box-shadow: 0px 0px 24px -5px rgba(0,0,0,1);
+  box-shadow: 0px 0px 24px -5px rgba(0,0,0,1);
+}
+
+img {
+  height: 120px;
 }
