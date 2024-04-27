@@ -28,8 +28,8 @@ export class CarroService {
     })
   }
 
-  atualizarCarro(idCarro: number, carroAtualizar: Carro): void {
-    this.http.put(`${this.apiUrl}/${idCarro}`, carroAtualizar ).subscribe({
+  atualizarCarro(idCarro: number, carroAtualizado: Carro): void {
+    this.http.put(`${this.apiUrl}/${idCarro}`, carroAtualizado ).subscribe({
       next: response => console.log(response)
     })
   }

@@ -44,11 +44,6 @@ export class CadastroFormComponent implements OnInit {
     this.novaCor = ``
   }
 
-  // finalizarCadastro(){
-  //   this.adicionarCarro();
-
-  // }
-
   adicionarCarro(){
     const marca = new Marca(this.marcaNome)
     const novoCarro = new Carro(this.nomeCarro, this.anoFabricacao, this.anoModelo, this.modelo, marca, this.listaCores)
