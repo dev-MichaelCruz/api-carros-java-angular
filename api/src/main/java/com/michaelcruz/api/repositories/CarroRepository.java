@@ -8,5 +8,7 @@ import java.util.Optional;
 
 public interface CarroRepository extends JpaRepository<Carro, Long> {
 
-    Optional<List<Carro>> findByNome(String nome);
+    Optional<List<Carro>> findCarrosByNome(String nome);
+
+    Optional<Carro> findByNome(String nome);
 }

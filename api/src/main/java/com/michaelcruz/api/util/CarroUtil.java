@@ -28,24 +28,26 @@ public class CarroUtil {
     }
 
     public boolean verificarCadastro(Carro carro) {
-        return carroRepository.findByNome(carro.getNome()).isPresent();
+        return carroRepository.findCarrosByNome(carro.getNome()).isPresent();
     }
 
-    public boolean verificarDadosCarro(Carro carro) {
+    public Carro verificarDadosCarro(Carro carro) {
 
-        Optional<List<Carro>> carroOptionalList = carroRepository.findByNome(carro.getNome());
+        Optional<List<Carro>> carroOptionalList = carroRepository.findCarrosByNome(carro.getNome());
 
-        for (Carro carroOptional : carroOptionalList.get()) {
-            if (carroOptional.getId() == carro.getId()
-                    && carroOptional.getNome().equals(carro.getNome())
-                    && carroOptional.getAnoFabricacao() == carro.getAnoFabricacao()
-                    && carroOptional.getAnoModelo() == carro.getAnoModelo()
-                    && carroOptional.getModelo().equals(carro.getModelo())){
+        if (carroOptionalList.isPresent()) {
+            for (Carro carroOptional : carroOptionalList.get()) {
 
-                return true;
+                if (carroOptional.getAnoFabricacao() == carro.getAnoFabricacao()
+                        && carroOptional.getAnoModelo() == carro.getAnoModelo()
+                        && carroOptional.getModelo().equalsIgnoreCase(carro.getModelo())){
+
+                    return carroOptional;
+                }
             }
         }
-        return false;
+        return null;
+
     }
 
     public void confirmarAdicao(Carro carro) {

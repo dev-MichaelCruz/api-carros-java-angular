@@ -38,10 +38,10 @@ public class CarroServiceImpl implements CarroService {
     }
 
     public void adicionarCarro(Carro carro) {
-        if(carroUtil.verificarDadosCarro(carro)){
-            if(carroUtil.verificarCadastro(carro)){
-                carroUtil.confirmarAdicao(carro);
-            }
+        Carro carroExistente = carroUtil.verificarDadosCarro(carro);
+
+        if(carroExistente != null) {
+            atualizarCarro(carroExistente.getId(), carro);
         } else {
             carroUtil.confirmarAdicao(carro);
         }
