@@ -24,7 +24,7 @@ export class ListaComponent implements OnInit {
   selModelo!: string;
   selAnoFab!: number;
   selAnoMod!: number;
-  selMarca!: Marca;
+  selMarca!: string;
   selCores!: Cor[]
 
   constructor(private router: Router,
@@ -43,7 +43,7 @@ export class ListaComponent implements OnInit {
     this.carregando =false
   }
 
-  buscarDados(index: number){
+  async buscarDados(index: number): Promise<any> {
     const carroExclusao = this.listaCarros[index]
 
     this.selId = carroExclusao.id;
@@ -51,7 +51,7 @@ export class ListaComponent implements OnInit {
     this.selModelo = carroExclusao.modelo
     this.selAnoFab = carroExclusao.anoFabricacao;
     this.selAnoMod = carroExclusao.anoModelo;
-    this.selMarca = carroExclusao.marca
+    this.selMarca = carroExclusao.marca.nome
     this.selCores = carroExclusao.cores
     console.log(this.selCores);
   }
@@ -74,9 +74,9 @@ export class ListaComponent implements OnInit {
     this.selCores.splice(index, 1);
   }
 
-  atualizarCarro(rota: string){
+  atualizarCarro(){
     const carroAtualizado = new Carro(
-      this.selNome, this.selAnoFab, this.selAnoMod, this.selModelo, this.selMarca, this.selCores
+      this.selNome, this.selAnoFab, this.selAnoMod, this.selModelo, new Marca(this.selMarca), this.selCores
     )
     this.carroService.atualizarCarro(this.selId, carroAtualizado)
   }

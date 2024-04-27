@@ -64,7 +64,7 @@
         <li><b>Modelo: </b><i>{{ selModelo }}</i></li>
         <li><b>Ano de Fabricação: </b><i>{{ selAnoFab }}</i></li>
         <li><b>Ano do Modelo: </b><i>{{ selAnoMod }}</i></li>
-        <li><b>Marca: </b><i>{{ selMarca.nome}}</i></li>
+        <li><b>Marca: </b><i>{{ selMarca }}</i></li>
       </ul>
       <div class="modal-footer">
         <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Voltar</button>
@@ -99,7 +99,7 @@
           <span class="input-group-text">Modelo</span>
           <input type="text" class="form-control" value="{{selModelo}}" disabled>
           <span class="input-group-text">Marca</span>
-          <input type="text" class="form-control" value="{{ selMarca.nome}}" disabled>
+          <input type="text" class="form-control" value="{{ selMarca }}" disabled>
         </div>
 
         <div class="input-cores">
@@ -119,7 +119,7 @@
 
       <div class="modal-footer">
         <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Voltar</button>
-        <button type="button" class="btn btn-success"  data-bs-dismiss="modal" aria-label="Close" (click)="atualizarCarro('lista')">Confirmar</button>
+        <button type="button" class="btn btn-success"  data-bs-dismiss="modal" aria-label="Close" (click)="atualizarCarro()">Confirmar</button>
       </div>
     </div>
   </div>
