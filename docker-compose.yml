@@ -31,7 +31,7 @@ services:
     ports:
       - "8080:8080"  # Mapeamento da porta do Spring Boot
     environment:
-      SPRING_DATASOURCE_URL: jdbc:mysql://mysql:3306/aulas1
+      SPRING_DATASOURCE_URL: mysql:3306/aulas1
       SPRING_DATASOURCE_USERNAME: root
       SPRING_DATASOURCE_PASSWORD: caxa
     depends_on:
