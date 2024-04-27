@@ -1,12 +1,12 @@
 <div class="container">
 
-  <div class="container-cadastro m-5">
+  <div class="ctn container-cadastro m-5">
     <form [formGroup]="cadastroCarroForm">
         <div class="input-group mb-1">
           <span class="input-group-text">Nome do Carro</span>
           <input type="text" class="form-control" [(ngModel)]="nomeCarro" formControlName="nomeCarro">
         </div>
-        <small class="text-danger" *ngIf="cadastroCarroForm.get('nomeCarro')?.invalid && cadastroCarroForm.get('nomeCarro')?.touched" style="color: red">
+        <small class="text-danger" *ngIf="cadastroCarroForm.get('nomeCarro')?.invalid && cadastroCarroForm.get('nomeCarro')?.touched">
         *O campo 'Nome do carro' é obrigatório!
         </small>
 
@@ -19,10 +19,10 @@
         </div>
 
         <div class="input-group input-small mb-1">
-          <small class="text-danger" *ngIf="cadastroCarroForm.get('anoFabricacao')?.invalid && cadastroCarroForm.get('anoFabricacao')?.touched" style="color: red">
+          <small class="text-danger" *ngIf="cadastroCarroForm.get('anoFabricacao')?.invalid && cadastroCarroForm.get('anoFabricacao')?.touched">
             *O campo 'Ano de Fabricação' é obrigatório!
           </small>
-          <small class="text-danger" *ngIf="cadastroCarroForm.get('anoModelo')?.invalid && cadastroCarroForm.get('anoModelo')?.touched" style="color: red">
+          <small class="text-danger" *ngIf="cadastroCarroForm.get('anoModelo')?.invalid && cadastroCarroForm.get('anoModelo')?.touched">
                  *O campo 'Ano do modelo' é obrigatório!
           </small>
         </div>
@@ -36,10 +36,10 @@
       </div>
 
       <div class="input-group input-small mb-1">
-        <small class="text-danger" *ngIf="cadastroCarroForm.get('modelo')?.invalid && cadastroCarroForm.get('modelo')?.touched" style="color: red">
+        <small class="text-danger" *ngIf="cadastroCarroForm.get('modelo')?.invalid && cadastroCarroForm.get('modelo')?.touched">
           *O campo 'Modelo' é obrigatório!
         </small>
-        <small class="text-danger" *ngIf="cadastroCarroForm.get('marcaNome')?.invalid && cadastroCarroForm.get('marcaNome')?.touched" style="color: red">
+        <small class="text-danger" *ngIf="cadastroCarroForm.get('marcaNome')?.invalid && cadastroCarroForm.get('marcaNome')?.touched">
           *O campo 'Marca' é obrigatório!
         </small>
       </div>
@@ -48,9 +48,9 @@
 
       <div class="input-cores">
         <div class="input-group-cores mb-1">
-          <span class="input-group-text">Cores</span>
+          <span class="input-group-text mb-1">Cores</span>
           <input type="text" class="form-control" [(ngModel)]="novaCor">
-          <button type="button" class="btn btn-success mt-1" (click)="adicionarCorNaLista(novaCor)"> Adicionar cor</button>
+          <button type="button" class="btn btn-primary mt-1" (click)="adicionarCorNaLista(novaCor)" [disabled]="!novaCor"> Adicionar cor</button>
 
           <div class="card-botoes mt-5">
             <button class="btn btn-danger" (click)="redirecionar('')">Cancelar</button>

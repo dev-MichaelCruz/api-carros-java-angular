@@ -32,15 +32,18 @@ export class ListaComponent implements OnInit {
   ) { }
 
   ngOnInit(): void {
-    this.carregando = true
-    this.carroService.buscarCarros().subscribe({
-      next: (lista: Carro[]) => {
-        lista.map( (carro: Carro) => {
-          this.listaCarros.push(carro)
-        })
-      }
-    })
-    this.carregando =false
+    // setTimeout(() => {
+    //   this.carregando = true
+    //   this.carroService.buscarCarros().subscribe({
+    //     next: (lista: Carro[]) => {
+    //       lista.map( (carro: Carro) => {
+    //         this.listaCarros.push(carro)
+    //       })
+    //     }
+    //   })
+    // }, 2000);
+    // this.carregando =false
+    this.atualizarTabela();
   }
 
   async buscarDados(index: number): Promise<any> {
@@ -59,6 +62,8 @@ export class ListaComponent implements OnInit {
 
   excluirCarro(id: number): void {
     this.carroService.excluirCarro(id)
+    this.atualizarTabela();
+    this.redirecionar('')
   }
 
   redirecionar(rota: string) {
@@ -79,5 +84,19 @@ export class ListaComponent implements OnInit {
       this.selNome, this.selAnoFab, this.selAnoMod, this.selModelo, new Marca(this.selMarca), this.selCores
     )
     this.carroService.atualizarCarro(this.selId, carroAtualizado)
+  }
+
+  atualizarTabela(){
+    setTimeout(() => {
+      this.carregando = true
+      this.carroService.buscarCarros().subscribe({
+        next: (lista: Carro[]) => {
+          lista.map( (carro: Carro) => {
+            this.listaCarros.push(carro)
+          })
+        }
+      })
+    }, 2000);
+    this.carregando =false
   }
 }

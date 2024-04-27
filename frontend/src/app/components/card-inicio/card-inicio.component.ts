@@ -12,18 +12,11 @@ import { MarcaService } from 'src/app/services/marca.service';
 export class CardInicioComponent {
 
   constructor(private router: Router,
-              private carroService: CarroService,
-              private corService: CorService,
-              private marcaService: MarcaService
+              private carroService: CarroService
   ){}
 
   redirecionar(rota: string) {
     this.router.navigate([rota])
   }
 
-  buscarDados() {
-    // this.corService.buscarCores();
-    this.carroService.buscarCarros();
-    // this.marcaService.buscarMarcas();
-  }
 }
