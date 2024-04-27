@@ -31,7 +31,7 @@ services:
       - mysql
     networks:
       - app_network
-      
+
   angular:
     build:
       context: ./frontend
@@ -54,6 +54,7 @@ services:
       - ./site:/usr/share/nginx/html
     depends_on:
       - angular
+      - springboot
     networks:
       - app_network
 
