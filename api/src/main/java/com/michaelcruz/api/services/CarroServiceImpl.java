@@ -48,11 +48,10 @@ public class CarroServiceImpl implements CarroService {
     }
 
     public void atualizarCarro(Long id, Carro novoCarro) {
-
         Optional<Carro> carroOptional = carroRepository.findById(id);
 
-
         if (carroOptional.isPresent()) {
+
             Carro carroAtual = carroOptional.get();
 
             if (novoCarro.getCores() != null) {

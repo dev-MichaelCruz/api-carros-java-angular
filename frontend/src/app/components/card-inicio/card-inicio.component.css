@@ -22,10 +22,20 @@ p {
 button {
   margin: 10px 10px;
   width: 50%;
+  border-radius: 2rem;
+  border: 2px solid #fff;
 }
 
 .btn {
   padding: 1rem;
   font-size: larger;
   font-weight: 500
+}
+
+h1 {
+  background-color: #4e5deb;
+  padding: 1rem;
+  border: 4px solid #fff;
+  border-radius: 1.5rem;
+  color: #ffffff;
 }
