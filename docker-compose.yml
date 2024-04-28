@@ -8,8 +8,8 @@ services:
     environment:
       MYSQL_ROOT_PASSWORD: caxa
       MYSQL_DATABASE: aulas1
-      # MYSQL_USER: root
-      # MYSQL_PASSWORD: caxa
+      MYSQL_USER: root
+      MYSQL_PASSWORD: caxa
     ports:
       - "3306:3306"  # Mapeamento da porta do MySQL
     networks:
