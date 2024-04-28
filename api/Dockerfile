@@ -1,5 +1,5 @@
 FROM adoptopenjdk/openjdk11:alpine
 WORKDIR /app
-COPY target/my-application.jar my-application.jar
+COPY target/api-0.0.1-SNAPSHOT.jar api-0.0.1-SNAPSHOT.jar
 EXPOSE 8080
-ENTRYPOINT ["java", "-jar", "my-application.jar"]
+ENTRYPOINT ["java", "-jar", "api-0.0.1-SNAPSHOT.jar"]
