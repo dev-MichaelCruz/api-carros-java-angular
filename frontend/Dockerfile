@@ -6,7 +6,7 @@ RUN npm install
 COPY . .
 RUN npm run build
 
-Estágio de produção
+# Estágio de produção
 FROM nginx:latest
 COPY --from=build /app/dist/* /usr/share/nginx/html/
 EXPOSE 80
