@@ -1,20 +1,13 @@
-# Use an official Node.js runtime as the base image
-FROM node:latest
-
-# Set the working directory in the container
+# Estágio de compilação
+FROM node:14 as build
 WORKDIR /app
-
-# Copy the package.json and package-lock.json files into the container at /app
-COPY package*.json ./
-
-# Install dependencies
+COPY package.json package-lock.json ./
 RUN npm install
-
-# Copy the rest of the application code into the container at /app
 COPY . .
+RUN npm run build
 
-# Expose the port the app runs on
-EXPOSE 4200
-
-# Command to run the application
-CMD ["npm", "start"]
+# Estágio de produção
+# FROM nginx:latest
+# COPY --from=build /app/dist/* /usr/share/nginx/html/
+# EXPOSE 80
+# CMD ["nginx", "-g", "daemon off;"]
