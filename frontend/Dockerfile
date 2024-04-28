@@ -1,5 +1,5 @@
 # Estágio de compilação
-FROM node:14 as build
+FROM node:latest as build
 WORKDIR /app
 COPY package.json package-lock.json ./
 RUN npm install
