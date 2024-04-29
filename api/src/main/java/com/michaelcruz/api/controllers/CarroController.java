@@ -22,20 +22,18 @@ public class CarroController {
     private CarroService carroService;
 
     @GetMapping
-    public ResponseEntity<List<Carro>> listarCarros(){
-        return ResponseEntity.ok(carroService.listarCarros());
+    public List<Carro> listarCarros(){
+        return carroService.listarCarros();
     }
 
     @PostMapping
-    public ResponseEntity<Carro> adicionarCarro(@RequestBody Carro carro){
-        this.carroService.adicionarCarro(carro);
-        return ResponseEntity.status(HttpStatus.CREATED).build();
+    public ResponseEntity adicionarCarro(@RequestBody Carro carro){
+        return this.carroService.adicionarCarro(carro);
     }
 
     @PutMapping("/{id}")
     public ResponseEntity<Carro> atualizarCarro(@PathVariable("id") Long id, @RequestBody Carro carro){
-        this.carroService.atualizarCarro(id, carro);
-        return ResponseEntity.status(HttpStatus.OK).build();
+        return this.carroService.atualizarCarro(id, carro);
     }
 
     @DeleteMapping("/{id}")

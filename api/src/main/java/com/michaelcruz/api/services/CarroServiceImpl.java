@@ -37,17 +37,19 @@ public class CarroServiceImpl implements CarroService {
         return carroRepository.findAll();
     }
 
-    public void adicionarCarro(Carro carro) {
+    public ResponseEntity adicionarCarro(Carro carro) {
         Carro carroExistente = carroUtil.verificarDadosCarro(carro);
 
         if(carroExistente != null) {
             atualizarCarro(carroExistente.getId(), carro);
+            return ResponseEntity.status(HttpStatus.OK).body("Carro já existe e foi atualizado");
         } else {
             carroUtil.confirmarAdicao(carro);
+            return ResponseEntity.status(HttpStatus.CREATED).body("Carro cadastrado com sucesso");
         }
     }
 
-    public void atualizarCarro(Long id, Carro novoCarro) {
+    public ResponseEntity atualizarCarro(Long id, Carro novoCarro) {
         Optional<Carro> carroOptional = carroRepository.findById(id);
 
         if (carroOptional.isPresent()) {
@@ -63,15 +65,18 @@ public class CarroServiceImpl implements CarroService {
                 carroAtual.setCores(novoCarro.getCores());
             }
             carroRepository.save(carroAtual);
+            return ResponseEntity.status(HttpStatus.OK).body("Carro atualizado com sucesso");
+        } else {
+            return ResponseEntity.status(HttpStatus.NOT_FOUND).body("Carro não encontrado");
         }
     }
 
-    public void excluirCarro(Long id){
+    public ResponseEntity excluirCarro(Long id){
         try {
             carroRepository.deleteById(id);
-            ResponseEntity.status(HttpStatus.NO_CONTENT).build();
-        } catch (EmptyResultDataAccessException e) {
-            ResponseEntity.status(HttpStatus.NOT_FOUND).build();
+            return ResponseEntity.status(HttpStatus.NO_CONTENT).body("Carro excluído com sucesso.");
+        } catch (Exception e) {
+            return ResponseEntity.status(HttpStatus.NOT_FOUND).build();
         }
     }
 }
