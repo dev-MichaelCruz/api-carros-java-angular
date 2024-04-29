@@ -32,21 +32,10 @@ export class ListaComponent implements OnInit {
   ) { }
 
   ngOnInit(): void {
-    // setTimeout(() => {
-    //   this.carregando = true
-    //   this.carroService.buscarCarros().subscribe({
-    //     next: (lista: Carro[]) => {
-    //       lista.map( (carro: Carro) => {
-    //         this.listaCarros.push(carro)
-    //       })
-    //     }
-    //   })
-    // }, 2000);
-    // this.carregando =false
     this.atualizarTabela();
   }
 
-  async buscarDados(index: number): Promise<any> {
+  buscarDados(index: number) {
     const carroExclusao = this.listaCarros[index]
 
     this.selId = carroExclusao.id;
